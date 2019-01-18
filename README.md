@@ -6,10 +6,10 @@ To use the macros in this repo follow the instructions bellow:
 ### FOR VISNODE1 USERS
 
 
-1. Download [IBPlib.ij]:(https://github.com/IBPlib/ij/archive/master.zip) and extract the contents from the ij-master folder into the following directory structure:
-`\clusterdata\{your username}\Jython_scripts\IBPlib\ij\`
+1. Download [IBPlib](https://github.com/ImageJ-scripts/Libraries/archive/master.zip) and extract the contents from the Libraries-master folder into the following directory structure:
+`\clusterdata\{your username}\Jython_scripts\` *The path should match exactly this pattern, else the macros won't run.
 
-2. Download the wanted macro from [IBPlib.imagej-macros](https://github.com/IBPlib/ij-macros) to your prefered location in visnode1.
+2. Download the wanted macro from [IBPlib.imagej-macros](https://github.com/ImageJ-scripts/ij-macros) to your prefered location in visnode1.
 
 3. Open imageJ and go into `Plugins>New>Macro`. A text editor from imageJ will popup.
 
@@ -22,10 +22,10 @@ To use the macros in this repo follow the instructions bellow:
 ### FOR ANY OTHER USER
 
 
-1. Download [IBPlib.ij]:(https://github.com/IBPlib/ij/archive/master.zip) and extract the contents from the ij-master folder into your user directory:
-`...\{your username}\Jython_scripts\IBPlib\ij\`
+1. Download [IBPlib](https://github.com/ImageJ-scripts/Libraries/archive/master.zip) and extract the contents from the Libraries-master folder into your user directory:
+`...\{your username}\Jython_scripts\`
 
-2. Download the wanted macro from [IBPlib.imagej-macros](https://github.com/IBPlib/ij-macros) to your imageJ plugins/macros folder.
+2. Download the wanted macro from [IBPlib.imagej-macros](https://github.com/ImageJ-scripts/ij-macros) to your imageJ plugins/macros folder.
 
 3. Start imageJ and go into `Plugins>Macros` to select your desired macro.
 
