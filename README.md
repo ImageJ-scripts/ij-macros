@@ -13,7 +13,7 @@ To use the macros in this repo follow the instructions bellow:
 
 3. Open imageJ and go into `Plugins>New>Macro`. A text editor from imageJ will popup.
 
-4. in the aforementioned text editor go into `File>Open` and select the script that you have downloaded in step `2`. The script be loaded in a tab in the text editor.
+4. In the aforementioned text editor go into `File>Open` and select the script that you have downloaded in step `2`. The script will be loaded in a tab in the text editor.
 
 5. In the script tab press the `Run` button in the lower left corner and this will start the macro.
 
@@ -61,7 +61,7 @@ It displays a dialog for the user to set the desired tags.
 
 
 
-#### Zprojector_async.py
+#### Zprojector_batch.py
 
 
 This macro generate Z-projections of image stacks.
