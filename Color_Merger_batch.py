@@ -21,4 +21,7 @@ from IBPlib.ij.ColorMerger import ColorMerger
 savefolder = save_folder.getPath()
 imgfolder = img_folder.getPath()
 cm = ColorMerger(savefolder, imgfolder, ext)
-cm.run()
+try:
+    cm.run()
+except Exception as e:
+    print("\nScript aborted due to the following error:\n\t'{0}'".format(e.args[0]))
