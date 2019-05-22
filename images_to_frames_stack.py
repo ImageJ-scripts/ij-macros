@@ -18,10 +18,10 @@ from  IBPlib.ij.Utils import ThreadedFileSaver
 from ij import (IJ, ImagePlus, ImageStack)
 from ij.plugin import ZProjector
 
-def prepare_batchtracing(imgdir, savestack=False):
+def images_to_frames_stack(imgdir, savestack=False):
 	'''
-	Method for preparing images for batch tracing with Simple Neurite Tracer.
-	When savestack is true it saves the resulting stack to the images folder while opening the stack for tracing
+	Method for preparing a stack of frames using images inside the input folder.
+	When savestack is true it saves the resulting stack to the images folder while opening the stack.
 	'''
 	title = "tracing_stack.tiff" # Title of the final image stack.
 	imgdir = imgdir.getPath()
@@ -50,4 +50,4 @@ def prepare_batchtracing(imgdir, savestack=False):
 
 
 if __name__ in ("__builtin__", "__main__"):
-	prepare_batchtracing(imgdir, save)
+	images_to_frames_stack(imgdir, save)

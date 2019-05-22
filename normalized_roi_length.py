@@ -1,5 +1,6 @@
 #@File[] (label="ROI folder", style="file") roi_files
 #@File	(label="Results folder", style="directory") csvPath
+
 # Bootstrap to extend modules search path #
 from sys import path
 import os.path
@@ -13,15 +14,23 @@ from ij.gui import Roi
 from ij.io import Opener
 from IBPlib.ij.Utils.Files import buildList
 
-def measure_length(rois_path, pixel_scaling):
+def normalized_roi_length(rois_path, pixel_scaling, normalization_fn=None):
 	'''
-	Returns the scaled measure of the input roi 
+	Returns the scaled measure of the input roi performing the normalization
+	function if provided. 
 	'''
 	opener = Opener()
 	roi = opener.openRoi(rois_path)
-	return roi.getLength()/pixel_scaling
+	scaled_measure = roi.getLength()/pixel_scaling
+	if callable(normalization_fn):
+		return normalization_fn(scaled_measure)
+	return measure
 
 if __name__ in ("__builtin__", "__main__"):
+	'''
+	Use case where multiple rois are measured, scaled and normalized.
+	Measurements being saved then to a csv file.
+	'''
 	rois = []
 	for i in roi_files:
 		if i.isDirectory():
@@ -31,9 +40,9 @@ if __name__ in ("__builtin__", "__main__"):
 	
 	scale = 3.1 # pixels/micrometers
 	cutdistance = 50 # distance from cell body in micrometers
-
-	lengths = ((measure_length(roi, scale)-cutdistance) for roi in rois)
-	resultspath = os.path.join(csvPath.getPath(),"regrowth.csv")
+	lengths = (normalized_roi_length(roi, scale, lambda x: x-cutdistance) for roi in rois)
+	
+	resultspath = os.path.join(csvPath.getPath(),"regrowth_1.csv")
 	with open(resultspath, "w") as csvfile:
 		for row in lengths:
 			line = "{0}\n".format(row)
