@@ -67,3 +67,23 @@ It displays a dialog for the user to set the desired tags.
 This macro generate Z-projections of image stacks.
 
 It works in the same way as `Color_merger` but for generating projections.
+
+
+## images_to_frames_stack.py
+
+
+This function creates a frames stack using the images inside the selected folder opening the resulting stack after completion.
+
+Optionally it saves the stack in the same folder.
+
+
+## import_multiple_rois.py
+
+
+This macro allows the user to import multiple roi files into the roi manager even when no images are open.
+
+
+## normalized_roi_length.py
+
+
+This function measures the length of roi in a ".roi" file, scales the pixels and performs a normalization function if provided.
