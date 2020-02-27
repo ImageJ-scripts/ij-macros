@@ -19,5 +19,10 @@ from IBPlib.ij import Projector
 
 savefolder = save_folder.getPath()
 imgfolder = img_folder.getPath()
-projector = Projector(savefolder, imgfolder, ext, method)
+if not os.path.isdir(savefolder):
+	try:
+		os.makedirs(savefolder)
+	except Exception as e:
+		print(e.args[0])
+projector = Projector.Projector(savefolder, imgfolder, ext, method)
 projector.run()

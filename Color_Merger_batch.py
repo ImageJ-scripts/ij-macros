@@ -8,7 +8,7 @@
 
 # Bootstrap to extend modules search path #
 from sys import path
-import os.path
+import os
 from java.lang.System import getProperty
 jython_scripts = os.path.join(getProperty('user.home'), 'Jython_scripts')
 path.append(jython_scripts)
@@ -20,8 +20,12 @@ from IBPlib.ij.ColorMerger import ColorMerger
 
 savefolder = save_folder.getPath()
 imgfolder = img_folder.getPath()
+
+if not os.path.isdir(savefolder):
+	try:
+		os.makedirs(savefolder)
+	except Exception as e:
+		print(e.args[0])
+
 cm = ColorMerger(savefolder, imgfolder, ext)
-try:
-    cm.run()
-except Exception as e:
-    print("\nScript aborted due to the following error:\n\t'{0}'".format(e.args[0]))
+cm.run()
