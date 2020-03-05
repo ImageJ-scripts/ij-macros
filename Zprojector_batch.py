@@ -6,6 +6,8 @@
 #@File (label="Save folder", style="directory") save_folder
 #@String (label="Images extension", value=".tif") ext
 #@String (label="Projection method", choices={"max","min","avg","sum", "sd", "median"}) method
+#@Boolean (label="Use GPU?", value="False") onGPU
+
 
 # Bootstrap to extend modules search path #
 from sys import path
@@ -25,4 +27,4 @@ if not os.path.isdir(savefolder):
 	except Exception as e:
 		print(e.args[0])
 projector = Projector.Projector(savefolder, imgfolder, ext, method)
-projector.run()
+projector.run(onGPU=onGPU)

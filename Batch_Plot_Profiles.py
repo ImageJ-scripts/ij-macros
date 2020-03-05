@@ -11,5 +11,5 @@ path.append(jython_scripts)
 from IBPlib.ij.Routines import batch_parameters
 from IBPlib.ij.Routines import tracing_and_linescanning
 
-params_dict = batch_parameters.load(param_file.toString())
-tracing_and_linescanning.batch_profile_from_threshold(params_dict)
+bp = batch_parameters.Batch_Parameters.from_json(param_file.toString())
+tracing_and_linescanning.batch_profile_from_threshold(bp)

@@ -21,13 +21,19 @@ from IBPlib.ij.Routines import tracing_and_linescanning
 
 # Create params file if none is suplied, else load it.
 if param_file:
-	params_dict = batch_parameters.load(param_file.toString())
+	bp = batch_parameters.Batch_Parameters.from_json(param_file.toString())
 else:
 	imgs_path_list = [img.toString() for img in imgs]
-	params_dict = batch_parameters.save(raw_images=imgs_path_list,
-		th_method=th_method,
-		stroke_width=stroke_width,
-		output_folder=output_folder.toString(),
-		analysis_ch=analysis_ch,
-		tracing_ch=tracing_ch)
-tracing_and_linescanning.batch_run(context, params_dict)
+	batch_schema = tracing_and_linescanning.get_batch_schema()
+	if not output_folder.exists():
+		output_folder.mkdir()
+	bp = batch_parameters.Batch_Parameters(batch_schema, tracing_and_linescanning.__BATCH_NAME__)
+	bp.set("raw_images", imgs_path_list)
+	bp.set("th_method", str(th_method))
+	bp.set("stroke_width", stroke_width)
+	bp.set("output_folder", str(output_folder.toString()))
+	bp.set("analysis_ch", analysis_ch)
+	bp.set("tracing_ch", tracing_ch)
+	bp.to_json_file(output_folder.toString())
+	
+tracing_and_linescanning.batch_run(context, bp)
