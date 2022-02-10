@@ -1,5 +1,5 @@
 #@String (label="Threshold method:", choices={"Iso", "Huang", "Li", "Internodes"}, style="listBox") th_method
-#@File[] (label="Select the images to work on...", style="extensions:png/jpg/tif") imgs
+#@File[] (label="Select the images to work on...", style="extensions:png/jpg/tif/ics") imgs
 #@Integer  (label="Tracing channel:", style="spinner") tracing_ch
 #@Integer  (label="Analysis channel:", style="spinner") analysis_ch
 #@Integer  (label="Trace width (px):", style="spinner") stroke_width

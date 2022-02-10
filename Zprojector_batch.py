@@ -27,4 +27,4 @@ if not os.path.isdir(savefolder):
 	except Exception as e:
 		print(e.args[0])
 projector = Projector.Projector(savefolder, imgfolder, ext, method)
-projector.run(onGPU=onGPU)
+projector.run()
