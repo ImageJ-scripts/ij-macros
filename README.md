@@ -1,5 +1,6 @@
 # IBPlib.imagej-macros
 
+[![DOI](https://zenodo.org/badge/165978276.svg)](https://zenodo.org/badge/latestdoi/165978276)
 
 To use the macros in this repo follow the instructions bellow:
 
